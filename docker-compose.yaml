@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   db:
     image: mysql:8
@@ -21,13 +19,13 @@ services:
     depends_on:
       - db
     environment:
-      DB_HOST: "db"
-      DB_PORT: "3306"
-      DB_USER: "myuser"
-      DB_PASSWORD: "mypassword"
-      DB_NAME: "athenadb"
+      DB_HOST: db  # Use service name instead of localhost
+      DB_PORT: 3306
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+      DB_NAME: athenadb
     ports:
-      - "8000:8000"
+      - "80:80"
 
 volumes:
   mysql_data:

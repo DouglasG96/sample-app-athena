@@ -5,11 +5,12 @@ FROM python:3.11
 WORKDIR /app
 
 # Copy the application code
-COPY . /app
+COPY requirements.txt .
 
 # Install dependencies
-RUN pip install --no-cache-dir fastapi uvicorn sqlalchemy pymysql cryptography
+RUN pip install --no-cache-dir -r requirements.txt
 
+COPY . .
 
 # Expose FastAPI default port
 EXPOSE 80
